@@ -38,6 +38,14 @@ module.exports = merge(common,{
                     {loader: MiniCSSExtractPlugin.loader},
                     {loader:'css-loader'},
                 ]
+            },
+            {
+                test: /\.(scss|sass)$/,
+                loaders: [
+                    {loader: MiniCSSExtractPlugin.loader},
+                    {loader:'css-loader'},
+                    {loader: 'sass-loader'}
+                ]
             }
         ]
         // Add SASS later

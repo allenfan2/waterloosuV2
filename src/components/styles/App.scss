@@ -1,0 +1,16 @@
+
+
+
+.App{
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    & .header{
+    }
+    & .footer{
+        height:50px
+    }
+    & .body{
+        height: 90%;
+    }
+}

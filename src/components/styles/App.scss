@@ -1,16 +1,13 @@
-
-
+@import "../../variables/_global.scss";
 
 .App{
-    height: inherit;
+    height: $full;
     display: flex;
     flex-direction: column;
     & .header{
+        height: auto;
     }
     & .footer{
-        height:50px
-    }
-    & .body{
-        height: 90%;
+        
     }
 }

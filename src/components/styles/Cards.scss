@@ -1,0 +1,39 @@
+@import "../../variables/_global.scss";
+
+.card {
+    flex-grow:1;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    // border: $color1 2px solid;
+    background-color: rgba($color1,0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 2px 2px 4px #858585;
+    &__avatar{
+        align-self: center;
+        border-radius: 50%;
+        width: calc(100px + 2vw);
+        height: auto;
+    }
+    &__info{
+        align-self: center;
+        margin-left: 20px;
+        flex-grow:1;
+        display: flex;
+        flex-direction: column;
+        & h1{
+            font-size: 24px;
+            font-size: calc(24px + 0.5vw);
+        }
+        & p{
+            font-size:14px;
+            font-size: calc(14px + 0.20vw);
+        }
+    }
+}

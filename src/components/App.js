@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from './Container'
 import './styles/App.scss'
 
 export default function App() {
@@ -7,9 +8,7 @@ export default function App() {
             <div className="header">
                 <h1>Waterloosu V2</h1>
             </div>
-            <div className="body">
-                Content
-            </div>
+            <Container/>
             <div className="footer">
                 Made with React
             </div>

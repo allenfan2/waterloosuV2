@@ -1,8 +1,16 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 html,#root{
     height:100%;
 }
 
+
 body {
+    background-color: rgb(230, 181, 34);
     font-family: 'Exo 2',sans-serif;
     height: 100%;
 }

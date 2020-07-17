@@ -1,0 +1,14 @@
+@import "../../variables/_global.scss";
+
+.container{
+    margin: 0px 10px 0px 10px;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: $white;
+}

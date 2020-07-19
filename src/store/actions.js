@@ -3,7 +3,6 @@ import {
     getStats,
     getPlayerInfo
 } from '../api/apiCall'
-import { defaults } from 'react-chartjs-2'
 
 export const CLOSE_OVERLAY = "CLOSE_OVERLAY"
 
@@ -114,3 +113,9 @@ const loadStats = (payload) => ({
 
 
 //
+
+// CHANGE PLAYERS
+
+export const CHANGE_PLAYER = "CHANGE_PLAYER"
+
+export const changePlayer=(direction)=>({type: CHANGE_PLAYER, payload: direction})

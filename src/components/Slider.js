@@ -6,14 +6,17 @@ import {
     closeOverlay,
     fetchStats,
     changeDate,
-    fetchPlayerInfo
+    fetchPlayerInfo,
+    changePlayer
 } from '../store/actions'
 
 import Stats from './Stats'
 
 
 const mapStateToProps = state => ({
+
     selectedPlayer: state.selectedPlayer,
+    players: state.players,
     statsLoaded: state.statsLoaded,
     from: state.from,
     to: state.to,
@@ -24,7 +27,8 @@ const mapDispatchToProps = {
     closeOverlay,
     fetchStats,
     changeDate,
-    fetchPlayerInfo
+    fetchPlayerInfo,
+    changePlayer
 }
 
 
@@ -37,31 +41,53 @@ const CloseButton = ({ onClick }) => (
     </svg>
 )
 
+const LeftArrow = ({ onClick }) => (
+    <button class="arrow left" onClick={onClick}>
+        <svg width="60px" height="80px" viewBox="0 0 50 80" xmlSpace="preserve">
+            <polyline fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 " />
+        </svg>
+    </button>
+)
+
+const RightArrow = ({ onClick }) => (
+    <button class="arrow right" onClick={onClick}>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xmlSpace="preserve">
+        <polyline fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 " />
+        </svg>
+</button >
+)
+
+
+
+
 function Slider(props) {
     const {
-        targetPlayer,
+        selectedPlayer,
+        players,
         from,
         to,
         closeOverlay,
         fetchStats,
         changeDate,
         fetchPlayerInfo,
-        playerInfo
+        playerInfo,
+        changePlayer
     } = props
 
-    const {username=""} = playerInfo
+    const { username = "" } = playerInfo
+    const playerID = selectedPlayer != null ? players[selectedPlayer].id : 0
 
     useEffect(() => {
-        if (targetPlayer != null) {
-            fetchStats(targetPlayer, from, to)
+        if (selectedPlayer != null) {
+            fetchStats(playerID, from, to)
         }
-    }, [targetPlayer, from, to])
+    }, [selectedPlayer, from, to])
 
     useEffect(() => {
-        if (targetPlayer != null) {
-            fetchPlayerInfo(targetPlayer)
+        if (selectedPlayer != null) {
+            fetchPlayerInfo(playerID)
         }
-    }, [targetPlayer])
+    }, [selectedPlayer])
 
     const changeDateWrapper = event => {
         const { name, value } = event.target
@@ -69,15 +95,17 @@ function Slider(props) {
     }
 
     return (
-        <div className={`slider ${(targetPlayer != null) ? "slider--active" : ""}`}>
+        <div className={`slider ${(selectedPlayer != null) ? "slider--active" : ""}`}>
             <div className="slider__body">
                 <div className="slider__title">
-                    <h1>Player: {username} (id: {targetPlayer})</h1>
+                    <LeftArrow onClick={()=>{changePlayer("prev")}}/>
+                    <h1>Player: {username} (id:{playerID})</h1>
+                    <RightArrow onClick={()=>{changePlayer("next")}}/>
                 </div>
-                <div>
-                    <span>From: </span>
+                <div className="slider__time-selector">
+                    <span>From:</span>
                     <input type="date" name="from" value={from} onChange={changeDateWrapper}></input>
-                    <span>To: </span>
+                    <span>To:</span>
                     <input type="date" name="to" value={to} onChange={changeDateWrapper}></input>
                 </div>
                 <Stats />

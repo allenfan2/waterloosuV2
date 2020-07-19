@@ -69,22 +69,28 @@ function Stats(props) {
     return (
         <div className="stats">
             <div className="stats__info">
-                <div className="stats__ava-container">
-                    <img className="stats__avatar" src={`https://a.ppy.sh/${user_id}`} alt="Photo not found"></img></div>
+                {!playerInfoLoaded && <Loader className="loader__medium" />}
+                <img className="stats__avatar" src={`https://a.ppy.sh/${user_id}`} alt="Photo not found">
+                </img>
                 <div className="num-stats">
-                    <div className="num-stats--stats">PP: {pp_raw}</div>
-                    <div className="num-stats--stats">Rank: {pp_rank}</div>
-                    <div className="num-stats--stats">Country Rank: {pp_country_rank}</div>
-                    <div className="num-stats--stats">Accuracy: {parseFloat(accuracy).toFixed(2)}%</div>
-                    <div className="num-stats--stats">Play Count: {playcount}</div>
-                    <div className="num-stats--stats">Ranked Score: {ranked_score}</div>
+                    <div className="num-stats--stats">Level: <span>{level}</span></div>
+                    <div className="num-stats--stats">PP: <span>{pp_raw}</span></div>
+                    <div className="num-stats--stats">Rank: <span>{pp_rank}</span></div>
+                    <div className="num-stats--stats">Country: <img className="stats__flag" src={`https://osu.ppy.sh/images/flags/${country}.png`} alt="country flag" /></div>
+                    <div className="num-stats--stats">Country Rank: <span> {pp_country_rank} </span></div>
+                    <div className="num-stats--stats">Accuracy: <span>{parseFloat(accuracy).toFixed(2)}%</span></div>
+                    <div className="num-stats--stats">Play Count: <span>{playcount}</span></div>
+                    <div className="num-stats--stats">Total Play Time: <span>{(parseInt(total_seconds_played) / 3600).toFixed(0)} Hours</span></div>
+                    <div className="num-stats--stats">Ranked Score: <span>{ranked_score}</span></div>
                 </div>
                 <div className="fc-stats">
-                    <img class="fc-stats__icons" src={Icon_A} alt='A Icon'/>
-                    <img class="fc-stats__icons" src={Icon_S} alt='S'/>
-                    <img class="fc-stats__icons" src={Icon_SH} alt='SH'/>
-                    <img class="fc-stats__icons" src={Icon_SS} alt='SS'/>
-                    <img class="fc-stats__icons" src={Icon_SSH} alt='SSH'/>
+                    <div class="fc-stats__info"><img class="fc-stats__icons" src={Icon_SSH} alt='SSH' /><span>{count_rank_ssh}</span></div>
+                    <div class="fc-stats__info"><img class="fc-stats__icons" src={Icon_SS} alt='SS' /><span>{count_rank_ss}</span></div>
+                    <div class="fc-stats__info"><img class="fc-stats__icons" src={Icon_SH} alt='SH' /><span>{count_rank_sh}</span></div>
+                    <div class="fc-stats__info"><img class="fc-stats__icons" src={Icon_S} alt='S' /><span>{count_rank_s}</span></div>
+                    <div class="fc-stats__info"><img class="fc-stats__icons" src={Icon_A} alt='A Icon' />
+                        <span>{count_rank_a}</span>
+                    </div>
                 </div>
             </div>
             <div className="stats__graph">

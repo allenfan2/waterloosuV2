@@ -9,49 +9,66 @@
     position: relative;
     display: flex;
     flex-flow: column nowrap;
-    
-    &__ava-container{
+    &__flag{
+        position: relative;
+        height: 20px;
+        top: 3px;
     }
     &__avatar{
         border-radius: 5px;
+        height: 162px;
+        width: auto;
+        margin-right: 10px;
     }
     &__info{
+        position: relative;
         margin: 10px 10px 0px 10px;
         padding: 10px;
         border-radius: 5px;
+        justify-content: center;
         background-color: rgba(white,0.6);
         color: black;
         display: flex;
-        flex-flow: row wrap;
-        min-height: 0;
+        flex-flow: row nowrap;
+        max-height: 162px;
         & .num-stats{
+            flex: 1 0 ;
             padding: 10px;
-            flex: 1;
             display:flex;
-            flex-flow: column nowrap;
+            flex-flow: row wrap;
             background-color: rgba(white,0.3);
             border-radius: 5px;
+            overflow-y: auto;
             &--stats {
+                margin-right: 10px;
                 flex: 1;
                 font-size: calc(20px);
+                white-space: nowrap;
+                font-weight: bold;
+                & span {
+                    font-weight: normal;
+                }
             }
         }
         & .fc-stats{
+            min-width: 100px;
             padding: 10px;
             min-height: 0;
             margin-left: 10px;
-            flex: 1;
             background-color: rgba(white,0.3);
             border-radius: 5px;
-            display: flex;
-            flex-flow: row nowrap;
-            &__icons{
-                height: 100px;
-                flex:1 1;
+            flex-flow: column nowrap;
+            &__info{
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                font-size: 20px;
             }
-            @media screen and (max-width: 860px) {
-                margin-left: 0px;
-                margin-top: 10px;
+            &__icons{
+                display:block;
+                float: left;
+                width: 28px;
+                height: 28px;
             }
         }
     }

@@ -10,6 +10,7 @@ const mapDispatchToProps ={
 function Cards(props) {
     const {
         id,
+        index,
         username,
         join_date,
         playcount,
@@ -26,7 +27,7 @@ function Cards(props) {
                 <p>Level: {level}</p>
                 <p>Playcount: {playcount}</p>
                 <p>Join Date: {join_date.split("T")[0]}</p>
-                <a onClick={()=>{selectPlayer(id)}}>Detailed Stats</a>
+                <a onClick={()=>{selectPlayer(index)}}>Detailed Stats</a>
             </div>
         </div>
     )

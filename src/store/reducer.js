@@ -7,7 +7,8 @@ import {
     FETCHING_STATS,
     LOAD_STATS,
     FETCHING_PLAYER_INFO,
-    LOAD_PLAYER_INFO
+    LOAD_PLAYER_INFO,
+    CHANGE_PLAYER
 } from './actions'
 
 const monthAgo=()=>{
@@ -33,9 +34,10 @@ const defaultState = {
 }
 
 function reducer(state=defaultState, action){
-    switch(action.type){
+    const {type,payload} = action
+    switch(type){
         case SELECT_PLAYER:
-            return {...state, selectedPlayer: action.payload}
+            return {...state, selectedPlayer: payload}
         case CLOSE_OVERLAY:
             return {...state,
                 selectedPlayer: null,
@@ -45,19 +47,35 @@ function reducer(state=defaultState, action){
                 statsLoaded: false
             }
         case LOAD_PLAYERS:
-            return {...state, players: action.payload, playersLoaded: true}
+            return {...state, players: payload, playersLoaded: true}
         case FETCHING_PLAYERS:
             return {...state, playersLoaded: false}
         case CHANGE_DATE:
-            return {...state, [action.field]:action.payload}
+            return {...state, [action.field]:payload}
         case FETCHING_STATS:
             return {...state, statsLoaded:false}
         case LOAD_STATS:
-            return {...state, stats: action.payload, statsLoaded:true}
+            return {...state, stats: payload, statsLoaded:true}
         case FETCHING_PLAYER_INFO:
             return {...state, playerInfoLoaded: false}
         case LOAD_PLAYER_INFO:
-            return {...state, playerInfo: action.payload}
+            return {...state, playerInfo: payload, playerInfoLoaded: true}
+        case CHANGE_PLAYER:
+            const totalPlayers = state.players.length
+            switch(payload){
+                case "prev":
+                    if(state.selectedPlayer == 0){
+                        return {...state, selectedPlayer: totalPlayers-1}
+                    }
+                    return {...state, selectedPlayer: state.selectedPlayer-1}
+                case "next":
+                    if(state.selectedPlayer == totalPlayers-1){
+                        return {...state, selectedPlayer: 0}
+                    }
+                    return {...state, selectedPlayer: state.selectedPlayer+1}
+                default:
+                    return state
+            }
         default:
             return state
     }

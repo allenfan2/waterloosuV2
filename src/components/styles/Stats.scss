@@ -42,7 +42,7 @@
             &--stats {
                 margin-right: 10px;
                 flex: 1;
-                font-size: calc(20px);
+                font-size: calc(18px + 0.5vw);
                 white-space: nowrap;
                 font-weight: bold;
                 & span {

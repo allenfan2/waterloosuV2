@@ -27,10 +27,11 @@ const loadPlayers = (payload) => {
     return { type: LOAD_PLAYERS, payload }
 }
 
-export const fetchPlayers = () => {
+export const fetchPlayers = (param = {sort:"pp_raw",by :-1 }) => {
+    const {sort,by} = param
     return dispatch => {
         dispatch(fetchingPlayers())
-        getAllPlayers().then(
+        getAllPlayers(sort,by).then(
             data => {
                 dispatch(loadHandler(data, loadPlayers, []))
             }
@@ -119,3 +120,14 @@ const loadStats = (payload) => ({
 export const CHANGE_PLAYER = "CHANGE_PLAYER"
 
 export const changePlayer=(direction)=>({type: CHANGE_PLAYER, payload: direction})
+
+// 
+
+// SORT
+
+export const SORT_PLAYERS = "SORT_PLAYERS "
+
+export const sortPlayers=(field)=>({
+    type: SORT_PLAYERS,
+    payload: field
+})

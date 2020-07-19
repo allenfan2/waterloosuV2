@@ -20,6 +20,7 @@ function Cards(props) {
     } = props
     return ( //onClick={()=>{alert("Hit")}}
         <div className="card">  
+            <div className="card__ranking">{index+1}</div>
             <img className="card__avatar" src={`https://a.ppy.sh/${id}`} alt="Photo not found"></img>
             <div className="card__info">
                 <h1 className="card__info__username">{username}</h1>

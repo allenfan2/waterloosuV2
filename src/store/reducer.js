@@ -8,7 +8,8 @@ import {
     LOAD_STATS,
     FETCHING_PLAYER_INFO,
     LOAD_PLAYER_INFO,
-    CHANGE_PLAYER
+    CHANGE_PLAYER,
+    SORT_PLAYERS
 } from './actions'
 
 const monthAgo=()=>{
@@ -31,6 +32,11 @@ const defaultState = {
     statsLoaded: false,
     from: defaultFromDate,
     to: defaultToDate,
+    sortInfo: {sort: "pp_raw", by: -1}
+}
+
+const toggle=(val)=>{
+    return val > 0 ? val - 2 : val + 2;
 }
 
 function reducer(state=defaultState, action){
@@ -76,6 +82,12 @@ function reducer(state=defaultState, action){
                 default:
                     return state
             }
+        case SORT_PLAYERS:
+            const prevInfo = state.sortInfo
+            if (payload == prevInfo.sort){
+                return {...state, sortInfo: {...prevInfo, by:toggle(prevInfo.by)}}
+            }
+            return {...state, sortInfo: {sort: payload, by: -1}}
         default:
             return state
     }

@@ -55,6 +55,12 @@
         right: 10px;
         top:10px;
     }
+    & button {
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      outline:0;
+    }
 }
 
 

@@ -5,13 +5,22 @@
     height: $full;
     display: flex;
     flex-direction: column;
+    & .query{
+        margin: 10px;
+        background-color: white;
+        padding: 5px;
+        border-radius: 10px;
+    }
     & .header{
+        font-size: calc(20px + 1vw);
+        text-align: center;
         height: auto;
     }
     & .footer{
         
     }
 }
+
 
 ::-webkit-scrollbar-track
 {

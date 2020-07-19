@@ -8,7 +8,7 @@ import Icon_S from '../assets/s.png'
 import Icon_SH from '../assets/sh.png'
 import Icon_SS from '../assets/ss.png'
 import Icon_SSH from '../assets/ssh.png'
-
+import NoAvatar from '../assets/noavatar.jpg'
 
 const mapStateToProps = state => ({
     stats: state.stats,
@@ -45,17 +45,17 @@ function Stats(props) {
         count_rank_s,
         count_rank_a,
         count_rank_sh,
-        country,
+        country ="CA",
         total_seconds_played,
         pp_country_rank
     } = playerInfo
 
     const dateArray = stats.map(x => x.date.split("T")[0])
-    const convData = (field, dlabel = "default", borderColor = "#cc9900", backgroundColor = "hsla(45, 100%, 40%, 0.25)") => ({
+    const convData = (field, dlabel = "default", modifyFn =(x)=>(x), borderColor = "#cc9900", backgroundColor = "hsla(45, 100%, 40%, 0.25)") => ({
         labels: dateArray,
         datasets: [{
             label: dlabel,
-            data: stats.map(x => x[field]),
+            data: stats.map(x => modifyFn(x[field])),
             borderColor,
             backgroundColor,
             borderWidth: 2,
@@ -70,7 +70,7 @@ function Stats(props) {
         <div className="stats">
             <div className="stats__info">
                 {!playerInfoLoaded && <Loader className="loader__medium" />}
-                <img className="stats__avatar" src={`https://a.ppy.sh/${user_id}`} alt="Photo not found">
+                <img className="stats__avatar" src={playerInfoLoaded ? `https://a.ppy.sh/${user_id}`:NoAvatar} alt="Photo not found">
                 </img>
                 <div className="num-stats">
                     <div className="num-stats--stats">Level: <span>{level}</span></div>
@@ -97,6 +97,8 @@ function Stats(props) {
                 {!statsLoaded && <Loader className="loader__medium" />}
                 <LineChart data={convData("pp_raw", "Preformance Points")} />
                 <LineChart data={convData("pp_rank", "Global Rank")} />
+                <LineChart data={convData("total_seconds_played", "Time Played (Hour)", (x)=>((x/3600).toFixed(2)))}/>
+                <LineChart data={convData("playcount", "Play Count")} />
             </div>
         </div>
     )

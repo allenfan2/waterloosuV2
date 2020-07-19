@@ -17,8 +17,5 @@ body {
 }
 
 button {
-    -webkit-appearance: none;
-    background: transparent;
-    border: 0;
-    outline:0;
+    font-family: 'Exo 2';
 }

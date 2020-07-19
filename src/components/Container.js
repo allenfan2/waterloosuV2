@@ -19,7 +19,7 @@ function Container(props) {
     return (
         <div className="container">
             {!playersLoaded && <Loader/>}
-            {players.map((p,i)=><Cards {...p} index={i}/>)}
+            {players.map((p,i)=><Cards key={i} {...p} index={i}/>)}
         </div>
     )
 }

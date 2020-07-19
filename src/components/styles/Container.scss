@@ -3,12 +3,13 @@
 .container{
     margin: 0px 10px 0px 10px;
     flex: 1 1 auto;
+    justify-content: flex-start;
     overflow-y: auto;
     min-height: 0px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     border-radius: 15px;
     padding: 5px;
     background-color: $white;
+    position: relative
 }

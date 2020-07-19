@@ -1,8 +1,13 @@
 import React from 'react'
 import './styles/Cards.scss'
+import {connect} from 'react-redux'
+import {selectPlayer} from '../store/actions'
 
+const mapDispatchToProps ={
+    selectPlayer
+}
 
-export default function Cards(props) {
+function Cards(props) {
     const {
         id,
         username,
@@ -10,6 +15,7 @@ export default function Cards(props) {
         playcount,
         level,
         pp_raw,
+        selectPlayer,
     } = props
     return ( //onClick={()=>{alert("Hit")}}
         <div className="card">  
@@ -20,7 +26,10 @@ export default function Cards(props) {
                 <p>Level: {level}</p>
                 <p>Playcount: {playcount}</p>
                 <p>Join Date: {join_date.split("T")[0]}</p>
+                <a onClick={()=>{selectPlayer(id)}}>Detailed Stats</a>
             </div>
         </div>
     )
 }
+
+export default connect(null,mapDispatchToProps)(Cards)

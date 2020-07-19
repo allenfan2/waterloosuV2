@@ -34,7 +34,13 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
+    "chart.js": "^2.9.3",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-chartjs-2": "^2.9.0",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   }
 }

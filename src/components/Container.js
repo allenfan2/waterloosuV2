@@ -1,23 +1,27 @@
 import React,{useState,useEffect} from 'react'
 import './styles/Container.scss'
 import Cards from './Cards'
-import {getAllPlayers} from '../api/apiCall'
+import {connect} from 'react-redux'
+import Loader from './common/Loader'
 
 
-export default function Container() {
-    const [{success,data},setPlayers] = useState({success:false,data:[]})
+const mapStateToProps=state=>({
+    players: state.players,
+    playersLoaded: state.playersLoaded
+})
 
-    useEffect(()=>{
-        getAllPlayers().then(
-            data=>setPlayers(data)
-        ).catch(
-            err=>setPlayers({success:false,data:[]})
-        )
-    },[])
+function Container(props) {
+    const {
+        players,
+        playersLoaded
+    } = props
 
     return (
         <div className="container">
-            {success ? data.map(p=><Cards {...p}/>): <h1>Nothing Here</h1>}
+            {!playersLoaded && <Loader/>}
+            {players.map(p=><Cards {...p}/>)}
         </div>
     )
 }
+
+export default connect(mapStateToProps,null)(Container)

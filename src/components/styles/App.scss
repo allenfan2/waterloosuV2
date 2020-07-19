@@ -1,6 +1,7 @@
 @import "../../variables/_global.scss";
 
 .App{
+    position: relative;
     height: $full;
     display: flex;
     flex-direction: column;

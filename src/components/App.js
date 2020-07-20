@@ -5,6 +5,7 @@ import Slider from './Slider'
 import { connect } from 'react-redux'
 import { fetchPlayers } from '../store/actions'
 import SortButton from './common/SortButton'
+import Logo from '../assets/logo.png'
 
 const mapStateToProps =state=> ({
     sortInfo: state.sortInfo
@@ -16,7 +17,7 @@ const mapDispatchToProps = {
 
 const App = props => {
     const {sortInfo} = props;
-    
+
     useEffect(() => {
         fetchPlayers(sortInfo)
     }, [sortInfo])
@@ -29,8 +30,8 @@ const App = props => {
     return (
         <div className="App">
             <div className="header">
-                <h1>Waterloosu V2</h1>
-            </div>
+                Stat<img src={Logo}/>Tracker
+                </div>
             <div className="query">
                 <div className="sort-buttons">
                     <SortButton name="pp_raw">Global Rank/PP</SortButton>

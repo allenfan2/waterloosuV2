@@ -24,7 +24,7 @@ function Cards(props) {
             <img className="card__avatar" src={`https://a.ppy.sh/${id}`} alt="Photo not found"></img>
             <div className="card__info">
                 <h1 className="card__info__username">{username}</h1>
-                <p>Preformance Points: {pp_raw}</p>
+                <p>Performance Points: {pp_raw}</p>
                 <p>Level: {level}</p>
                 <p>Playcount: {playcount}</p>
                 <p>Join Date: {join_date.split("T")[0]}</p>

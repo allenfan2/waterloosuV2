@@ -6,7 +6,10 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && npm run remove-old-ui && npm-run-copy-ui",
+    "copy-ui": "cp ./build/* /var/www/html/waterloosu/",
+    "remove-old-ui": "rm -rf /var/www/html/waterloosu/*"
   },
   "keywords": [],
   "author": "",

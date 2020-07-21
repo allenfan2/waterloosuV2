@@ -3,4 +3,7 @@ import logger from 'redux-logger'
 import reducer from './reducer'
 import thunk from 'redux-thunk';
 
-export const store = createStore(reducer,applyMiddleware(thunk,logger))
+
+console.log()
+const middleware = [thunk, process.env["NODE_ENV"] == "DEV" && logger].filter(Boolean)
+export const store = createStore(reducer,applyMiddleware(...middleware))

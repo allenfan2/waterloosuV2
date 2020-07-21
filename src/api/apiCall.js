@@ -1,6 +1,6 @@
 export const getAllPlayers = async (sort="pp_raw",by="-1")=>{
-    const query=`/api/getInfo?sort=${sort}&by=${by}`
-    console.log(query)
+    const query=`/api/v2/getInfo?sort=${sort}&by=${by}`
+    //process.env["NODE_ENV"] == "DEV" && console.log(query)
     const response = await fetch(query)
     let data = await response.json()
     return data

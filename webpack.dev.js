@@ -32,7 +32,7 @@ module.exports = merge(common, {
     },
     devServer: {
         proxy: {
-            '/api':'http://localhost:5000'
+            '/api': 'http://localhost:5000'
         },
         historyApiFallback: true,
         hot: true,
@@ -42,6 +42,12 @@ module.exports = merge(common, {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebPackPlugin({
             template: "./public/index.html"
+        }),
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify("DEV")
+            }
         })
     ]
 })

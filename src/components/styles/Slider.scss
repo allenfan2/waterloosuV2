@@ -15,7 +15,7 @@
     color: $white;
     padding: 10px;
     min-width: 600px;
-    @media screen and (max-width: 923px) {
+    @media screen and (max-width: 920px) {
         width: 100%;
         height: 100%;
         padding: 0px;
@@ -43,17 +43,8 @@
         pointer-events:auto;
     }
     &__title{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
+        text-align: center;
         margin: 0px 10px 10px 0px;
-    }
-    &__close{
-        cursor: pointer;
-        width: 25px;
-        position: absolute;
-        right: 10px;
-        top:10px;
     }
     & button {
       -webkit-appearance: none;
@@ -63,13 +54,51 @@
     }
 }
 
+.close{
+  cursor: pointer;
+  width: 25px;
+  position: absolute;
+  right: 10px;
+  top:10px;
+  @media screen and (max-width: 920px) {
+    width: 70px;
+    & line, circle, path {
+      stroke-width: 1px;
+    }
+  }
+  &:hover line, :hover circle, :hover path, :focus line, :focus circle, :focus path{
+    stroke-width: 2;
+  }
+  &:active line, :active circle,:active path{
+    stroke-width: 3;
+    transition: all 100ms ease-in-out;
+  }
+}
+
 
   
   
 .arrow {
+  position: absolute;
   cursor: pointer;
   & svg{
-      height: 2em;
+      height: 5em;
+  }
+  &.left {
+    top: 15px;
+    left: 10px;
+    @media screen and (max-width: 920px) {
+      left: 140px;
+      top: 10px;
+    }
+  }
+  &.right{
+    top:15px;
+    right:30px;
+    @media screen and (max-width: 920px) {
+      right: 150px;
+      top: 10px;
+    }
   }
 }
 
@@ -93,6 +122,6 @@
   transition: all 100ms ease-in-out;
 }
 
-polyline {
+line, circle, path , polyline {
   transition: all 250ms ease-in-out;
 }

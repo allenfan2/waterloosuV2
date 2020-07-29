@@ -25,7 +25,7 @@ function SortButton(props) {
     const {sort,by} = sortInfo
 
     return (
-        <button className="sort-button" name={name}  onClick={(e)=>{sortPlayers(e.target.name)}}>
+        <button className="button sort-button" name={name}  onClick={(e)=>{sortPlayers(e.target.name)}}>
             {children} {sort == name && <img src={by == 1? SortUp : SortDown} width="10px"/>}
         </button>
     )

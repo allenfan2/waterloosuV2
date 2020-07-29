@@ -9,7 +9,8 @@ import {
     FETCHING_PLAYER_INFO,
     LOAD_PLAYER_INFO,
     CHANGE_PLAYER,
-    SORT_PLAYERS
+    SORT_PLAYERS,
+    CHANGE_MODE
 } from './actions'
 
 const monthAgo=()=>{
@@ -23,6 +24,7 @@ const defaultToDate= new Date().toISOString().split("T")[0]
 
 
 const defaultState = {
+    mode: 0,
     selectedPlayer: null,
     players: [],
     playersLoaded: false,
@@ -32,7 +34,8 @@ const defaultState = {
     statsLoaded: false,
     from: defaultFromDate,
     to: defaultToDate,
-    sortInfo: {sort: "pp_raw", by: -1}
+    sortInfo: {sort: "pp_raw", by: -1},
+
 }
 
 const toggle=(val)=>{
@@ -88,6 +91,8 @@ function reducer(state=defaultState, action){
                 return {...state, sortInfo: {...prevInfo, by:toggle(prevInfo.by)}}
             }
             return {...state, sortInfo: {sort: payload, by: -1}}
+        case CHANGE_MODE:
+            return {...state, mode: payload}
         default:
             return state
     }

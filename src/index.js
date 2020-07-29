@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom"
 import React from "react"
 import App from './components/App'
-import './index.css'
+import './index.scss'
 import {Provider} from 'react-redux'
 import {store} from './store/index'
 import { defaults } from 'react-chartjs-2';

@@ -3,28 +3,32 @@ import Container from './Container'
 import './styles/App.scss'
 import Slider from './Slider'
 import { connect } from 'react-redux'
-import { fetchPlayers } from '../store/actions'
+import { fetchPlayers, changeMode } from '../store/actions'
 import SortButton from './common/SortButton'
 import Logo from '../assets/logo.png'
 
 const mapStateToProps =state=> ({
-    sortInfo: state.sortInfo
+    sortInfo: state.sortInfo,
+    mode: state.mode
 })
 
 const mapDispatchToProps = {
-    fetchPlayers
+    fetchPlayers,
+    changeMode
 }
 
 const App = props => {
-    const {sortInfo} = props;
+    const {
+        sortInfo,
+        mode,
+        fetchPlayers,
+        changeMode
+    } = props;
 
     useEffect(() => {
-        fetchPlayers(sortInfo)
-    }, [sortInfo])
+        fetchPlayers(sortInfo,mode)
+    }, [sortInfo,mode])
 
-    const {
-        fetchPlayers
-    } = props
 
 
     return (
@@ -37,6 +41,12 @@ const App = props => {
                     <SortButton name="pp_raw">Global Rank/PP</SortButton>
                     <SortButton name="playcount">Playcount</SortButton>
                     <SortButton name="join_date">Join Date</SortButton>
+                </div>
+                <div>
+                    <button className={`button ${mode==0 && "button--selected"}`} onClick={()=>{changeMode(0)}}>osu!</button>
+                    <button className={`button ${mode==1 && "button--selected"}` } onClick={()=>{changeMode(1)}}>Taiko</button>
+                    <button className={`button ${mode==3 && "button--selected"}`} onClick={()=>{changeMode(3)}}>Mania</button>
+                    <button className={`button ${mode==2 && "button--selected"}`} onClick={()=>{changeMode(2)}}>CTB</button>
                 </div>
             </div>
             <Container />

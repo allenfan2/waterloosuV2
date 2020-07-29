@@ -28,7 +28,7 @@ function Cards(props) {
                 <p>Level: {level}</p>
                 <p>Playcount: {playcount}</p>
                 <p>Join Date: {join_date.split("T")[0]}</p>
-                <a onClick={()=>{selectPlayer(index)}}>Detailed Stats</a>
+                <a className="button" onClick={()=>{selectPlayer(index)}}>Detailed Stats</a>
             </div>
         </div>
     )

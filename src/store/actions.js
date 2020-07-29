@@ -66,10 +66,10 @@ const fetchingPlayerInfo = () => (
     { type: FETCHING_PLAYER_INFO }
 )
 
-export const fetchPlayerInfo = (id) => {
+export const fetchPlayerInfo = (id,mode=0) => {
     return dispatch => {
         dispatch(fetchingPlayerInfo())
-        getPlayerInfo(id).then(
+        getPlayerInfo(id,mode).then(
             (data) => dispatch(loadHandler(data,loadPlayerInfo,{}))
         ).catch(err => {
             console.log(err)
@@ -95,10 +95,10 @@ const fetchingStats = () => ({
 })
 
 
-export const fetchStats = (id, from, to) => {
+export const fetchStats = (id, from, to, mode=0) => {
     return dispatch => {
         dispatch(fetchingStats())
-        getStats(id, from, to).then(
+        getStats(id, from, to,mode).then(
             data => dispatch(loadHandler(data, loadStats, []))
         ).catch(e => {
             // 

@@ -7,21 +7,23 @@
     flex-direction: row;
     flex-wrap: nowrap;
     width: 400px;
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2){
+        width: 500px;
+    }
     padding: 10px;
     border-radius: 10px;
     background-color: rgba($color1,0.3);
     box-shadow: 2px 2px 4px #858585;
     position: relative;
     & a{
+        margin-top: 5px;
         width: fit-content;
         padding: 2px 5px 2px 5px;
         border-radius: 10px;
-        background-color: $black;
-        color: white;
-        &:hover{
-            background-color: rgba($black,0.5);
-            cursor: pointer;
-        }
+        float: right;
     }
     &__ranking{    
         position: absolute;

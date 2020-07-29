@@ -20,7 +20,8 @@ const mapStateToProps = state => ({
     statsLoaded: state.statsLoaded,
     from: state.from,
     to: state.to,
-    playerInfo: state.playerInfo
+    playerInfo: state.playerInfo,
+    mode:state.mode
 })
 
 const mapDispatchToProps = {
@@ -67,6 +68,7 @@ function Slider(props) {
         players,
         from,
         to,
+        mode,
         closeOverlay,
         fetchStats,
         changeDate,
@@ -80,15 +82,15 @@ function Slider(props) {
 
     useEffect(() => {
         if (selectedPlayer != null) {
-            fetchStats(playerID, from, to)
+            fetchStats(playerID, from, to, mode)
         }
-    }, [selectedPlayer, from, to])
+    }, [selectedPlayer, from, to, mode])
 
     useEffect(() => {
         if (selectedPlayer != null) {
-            fetchPlayerInfo(playerID)
+            fetchPlayerInfo(playerID,mode)
         }
-    }, [selectedPlayer])
+    }, [selectedPlayer, mode])
 
     const changeDateWrapper = event => {
         const { name, value } = event.target

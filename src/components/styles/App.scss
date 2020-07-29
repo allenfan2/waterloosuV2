@@ -13,9 +13,21 @@
         background-color: $white;
         padding: 5px;
         border-radius: 10px;
+        & .button{
+            font-size: 1.5em;
+        }
         & .button--selected{
             background-color: rgba($color1,1);
         }
+        // & .search-bar{
+        //     font-size: 1.5em;
+        //     &--input{
+        //         font-size: 1.5em;
+        //         height: 100%;
+        //         border: none;
+        //         border-bottom: solid black 2px;
+        //     }
+        // }
     }
     & .header{
         position: relative;

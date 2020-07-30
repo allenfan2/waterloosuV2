@@ -1,15 +1,14 @@
 @import "../../variables/_global.scss";
 
 .container{
-    margin: 0px 10px 0px 10px;
+    background-color: $white;
+    position: relative;
+
     flex: 1 1 auto;
-    justify-content: flex-start;
-    overflow-y: auto;
-    min-height: 0px;
     display: flex;
     flex-flow: row wrap;
-    border-radius: 15px;
-    padding: 5px;
-    background-color: $white;
-    position: relative
+    justify-content: flex-start;
+
+    overflow-y: auto;
+    min-height: 0px;
 }

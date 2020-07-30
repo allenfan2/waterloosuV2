@@ -36,7 +36,7 @@ const App = props => {
             <div className="header">
                 Stat<img src={Logo}/>Tracker
                 </div>
-            <div className="query">
+            <div className="sort-mode-select-bar">
                 <div className="sort-buttons">
                     <SortButton name="pp_raw">Global Rank/PP</SortButton>
                     <SortButton name="playcount">Playcount</SortButton>

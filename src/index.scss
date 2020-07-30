@@ -19,7 +19,11 @@ body {
 
 button {
     font-family: 'Exo 2';
-}
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    outline:0;
+  }
 
 .button{
     padding: 5px;

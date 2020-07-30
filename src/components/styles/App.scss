@@ -5,7 +5,7 @@
     height: $full;
     display: flex;
     flex-direction: column;
-    & .query{
+    & .sort-mode-select-bar{
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
@@ -14,38 +14,26 @@
         padding: 5px;
         border-radius: 10px;
         & .button{
-            font-size: 1.5em;
+            font-size: 1.2em;
         }
         & .button--selected{
             background-color: rgba($color1,1);
         }
-        // & .search-bar{
-        //     font-size: 1.5em;
-        //     &--input{
-        //         font-size: 1.5em;
-        //         height: 100%;
-        //         border: none;
-        //         border-bottom: solid black 2px;
-        //     }
-        // }
     }
     & .header{
         position: relative;
         & img{
             position: relative;
-            top: 20px;
+            top: 10px;
             margin: 0px 10px 0px 10px;
             width: 75px;
         }
-        margin-bottom: 10px;
-        margin-top: -10px;
-        font-size: calc(40px + 1vw);
+        font-size: 5em;
         font-weight: bold;
         text-align: center;
-        height: auto;
     }
     & .footer{
-        
+        text-align: center;
     }
 }
 

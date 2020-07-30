@@ -54,6 +54,7 @@ module.exports = merge(common,{
         new MiniCSSExtractPlugin({filename: "[name].[contentHash].css"}),
         new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
+            src:"./public/favicon.ico",
             template: "./public/index.html",
             minify: {
                 removeAttributeQuotes: true,

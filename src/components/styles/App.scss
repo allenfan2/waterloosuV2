@@ -13,11 +13,17 @@
         background-color: $white;
         padding: 5px;
         border-radius: 10px;
+        & .sort-buttons{
+            height: 100%;
+        }
         & .button{
+            height: 100%;
             font-size: 1.2em;
+            font-weight: bold;
         }
         & .button--selected{
             background-color: rgba($color1,1);
+            border: solid black 4px;
         }
     }
     & .header{

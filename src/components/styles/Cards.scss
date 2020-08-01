@@ -8,23 +8,20 @@
     width: 275px;
     padding: 10px;
     border-radius: 10px;
-    background-color: rgba($color1,0.4);
-    //&:nth-child(even){
-    //    background-color: rgba($color1,.4);
-    //}
-    box-shadow: 2px 2px 4px #858585;
+    background-color: rgba($color1,.9);
     position: relative;
     &__ranking{    
         position: absolute;
-        top: -10px;
-        left: -10px;
+        top: -5px;
+        left: -5px;
         border-radius: 50%;
         text-align: center;
         width: 40px;
         height: 40px;
         font-size: 32px;
         font-weight: 700;
-        background-color: $color1;
+        color: $color1;
+        background-color: $black;
     }
     &__avatar{
         &:hover{
@@ -58,6 +55,7 @@
                 width: 60px;
             }
         }
+        margin-top: 5px;
         align-self: center;
         border-radius: 10%;
     }
@@ -67,22 +65,26 @@
         text-overflow: ellipsis;
         flex-grow:1;
         display: flex;
+        text-align: center;
         flex-direction: column;
-        &__username{
-            align-self: center;
+        &__username {
             font-size: calc(24px + 0.3vw);
         }
         &__stats{
             margin-top: 5px;
-            background-color: rgba(white,0.5);
-            border: 1px solid $color1;
+            background-color: rgba(white,.85);
             padding: 10px;
-            font-size: 1.3em;
+            font-size: 1.2em;
             border-radius: 10px;
-            font-weight: bolder;
-            & span{
-                font-weight: normal;
-                text-align: right;
+            & div{
+                clear: both;
+            }
+            & .slabel{
+                float: left;
+            }
+            & .sval{
+                font-weight: bold;
+                float: right;
             }
         }
     }

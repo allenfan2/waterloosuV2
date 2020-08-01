@@ -1,6 +1,7 @@
 @import "../../../variables/global";
 
 .sort-button{
+    font-weight: bold;
     &:not(:last-child){
         margin-right: 5px;
     }

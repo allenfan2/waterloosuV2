@@ -95,7 +95,7 @@ function Stats(props) {
             </div>
             <div className="stats__graph">
                 {!statsLoaded && <Loader className="loader__medium" />}
-                <LineChart data={convData("pp_raw", "Preformance Points")} />
+                <LineChart data={convData("pp_raw", "Performance Points")} />
                 <LineChart data={convData("pp_rank", "Global Rank")} />
                 <LineChart data={convData("total_seconds_played", "Time Played (Hour)", (x)=>((x/3600).toFixed(2)))}/>
                 <LineChart data={convData("playcount", "Play Count")} />

@@ -21,12 +21,12 @@ module.exports = {
                 ]
             },
             {
-              test: /\.(png|jp(e*)g|svg|gif)$/,
+              test: /\.(ico|png|jp(e*)g|svg|gif)$/,
               use: [
                 {
                   loader: 'file-loader',
                   options: {
-                    name: 'images/[hash]-[name].[ext]',
+                    name: 'images/[name].[ext]',
                   }
                 }
               ]
